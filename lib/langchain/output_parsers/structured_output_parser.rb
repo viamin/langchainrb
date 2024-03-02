@@ -65,7 +65,7 @@ module Langchain::OutputParsers
       JSON::Validator.validate!(schema, parsed)
       parsed
     rescue => e
-      raise OutputParserException.new("Failed to parse. Text: \"#{text}\". Error: #{e}", text)
+      raise OutputParserException.new("Failed to parse. Text: \"#{text}\". Original JSON: #{json}, Error: #{e}", text)
     end
 
     private
